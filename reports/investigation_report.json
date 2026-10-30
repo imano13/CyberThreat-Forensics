@@ -1,0 +1,152 @@
+{
+  "report_version": "1.0",
+  "generated_at_utc": "2026-10-27T15:55:13.102621+00:00",
+  "evidence": {
+    "file_name": "auth_events.jsonl",
+    "sha256": "79722051bc16fbfe28d3cd52eb4e62afcc47899978d3bef64178c5dc7b033a57",
+    "event_count": 11,
+    "event_time_range_utc": {
+      "start_utc": "2026-10-27T12:00:00+00:00",
+      "end_utc": "2026-10-27T12:14:00+00:00"
+    }
+  },
+  "summary": {
+    "alert_count": 2,
+    "severity_counts": {
+      "high": 2
+    }
+  },
+  "alerts": [
+    {
+      "rule_id": "BRUTE_FORCE",
+      "severity": "high",
+      "source_ip": "203.0.113.10",
+      "start_time": "2026-10-27T12:01:00+00:00",
+      "end_time": "2026-10-27T12:02:20+00:00",
+      "event_count": 5,
+      "usernames": [
+        "admin"
+      ],
+      "description": "5 failed logins against account 'admin' from one IP within 5 minutes."
+    },
+    {
+      "rule_id": "PASSWORD_SPRAYING",
+      "severity": "high",
+      "source_ip": "198.51.100.20",
+      "start_time": "2026-10-27T12:10:00+00:00",
+      "end_time": "2026-10-27T12:14:00+00:00",
+      "event_count": 5,
+      "usernames": [
+        "alice",
+        "bob",
+        "carol",
+        "dave",
+        "erin"
+      ],
+      "description": "Failed logins against 5 different accounts within 10 minutes."
+    }
+  ],
+  "timeline": [
+    {
+      "timestamp_utc": "2026-10-27T12:00:00+00:00",
+      "event_type": "login_success",
+      "username": "alice",
+      "source_ip": "192.0.2.55",
+      "linked_alert_rules": []
+    },
+    {
+      "timestamp_utc": "2026-10-27T12:01:00+00:00",
+      "event_type": "login_failure",
+      "username": "admin",
+      "source_ip": "203.0.113.10",
+      "linked_alert_rules": [
+        "BRUTE_FORCE"
+      ]
+    },
+    {
+      "timestamp_utc": "2026-10-27T12:01:20+00:00",
+      "event_type": "login_failure",
+      "username": "admin",
+      "source_ip": "203.0.113.10",
+      "linked_alert_rules": [
+        "BRUTE_FORCE"
+      ]
+    },
+    {
+      "timestamp_utc": "2026-10-27T12:01:40+00:00",
+      "event_type": "login_failure",
+      "username": "admin",
+      "source_ip": "203.0.113.10",
+      "linked_alert_rules": [
+        "BRUTE_FORCE"
+      ]
+    },
+    {
+      "timestamp_utc": "2026-10-27T12:02:00+00:00",
+      "event_type": "login_failure",
+      "username": "admin",
+      "source_ip": "203.0.113.10",
+      "linked_alert_rules": [
+        "BRUTE_FORCE"
+      ]
+    },
+    {
+      "timestamp_utc": "2026-10-27T12:02:20+00:00",
+      "event_type": "login_failure",
+      "username": "admin",
+      "source_ip": "203.0.113.10",
+      "linked_alert_rules": [
+        "BRUTE_FORCE"
+      ]
+    },
+    {
+      "timestamp_utc": "2026-10-27T12:10:00+00:00",
+      "event_type": "login_failure",
+      "username": "alice",
+      "source_ip": "198.51.100.20",
+      "linked_alert_rules": [
+        "PASSWORD_SPRAYING"
+      ]
+    },
+    {
+      "timestamp_utc": "2026-10-27T12:11:00+00:00",
+      "event_type": "login_failure",
+      "username": "bob",
+      "source_ip": "198.51.100.20",
+      "linked_alert_rules": [
+        "PASSWORD_SPRAYING"
+      ]
+    },
+    {
+      "timestamp_utc": "2026-10-27T12:12:00+00:00",
+      "event_type": "login_failure",
+      "username": "carol",
+      "source_ip": "198.51.100.20",
+      "linked_alert_rules": [
+        "PASSWORD_SPRAYING"
+      ]
+    },
+    {
+      "timestamp_utc": "2026-10-27T12:13:00+00:00",
+      "event_type": "login_failure",
+      "username": "dave",
+      "source_ip": "198.51.100.20",
+      "linked_alert_rules": [
+        "PASSWORD_SPRAYING"
+      ]
+    },
+    {
+      "timestamp_utc": "2026-10-27T12:14:00+00:00",
+      "event_type": "login_failure",
+      "username": "erin",
+      "source_ip": "198.51.100.20",
+      "linked_alert_rules": [
+        "PASSWORD_SPRAYING"
+      ]
+    }
+  ],
+  "limitations": [
+    "Detection alerts are heuristic indicators, not proof of an attack.",
+    "The SHA-256 hash identifies the input file at analysis time; it does not independently prove authenticity or chain of custody."
+  ]
+}
